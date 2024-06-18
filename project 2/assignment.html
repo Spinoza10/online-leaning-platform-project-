@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Submission</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Assignment Submission</h1>
+    </header>
+
+    <main>
+        <form id="assignment-form">
+            <label for="assignment">Choose Assignment:</label>
+            <input type="file" id="assignment" name="assignment" accept=".pdf, .doc, .docx" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 1em;
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+form input[type="file"],
+form input[type="email"],
+form button {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+</style>
+
+    <script>
+        document.getElementById('assignment-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    let assignmentFile = document.getElementById('assignment').files[0];
+    let email = document.getElementById('email').value;
+    
+    // Create FormData object to send files and data
+    let formData = new FormData();
+    formData.append('assignment', assignmentFile);
+    formData.append('email', email);
+    
+    // Send data to PHP script for processing
+    fetch('submit_assignment.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // Display response from PHP script
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+    </script>
+</body>
+</html>
