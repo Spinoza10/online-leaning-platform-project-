@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Online Learning Platform</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        <div class="icons">
+            <img src="settings-icon.png" alt="Settings">
+            <img src="profile-icon.png" alt="Profile">
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="admin-profile">
+            <img src="admin-profile.png" alt="Admin Profile Image">
+            <h3>Admin Name</h3>
+            <button onclick="viewProfile()">View Profile</button>
+        </div>
+        <ul>
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="#">Manage Users</a></li>
+            <li><a href="#">Manage Courses</a></li>
+            <li><a href="#">Manage Teachers</a></li>
+            <li><a href="#">Exam Sessions</a></li>
+            <li><a href="#">Contact Requests</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <section class="dashboard">
+            <h2>Dashboard</h2>
+            <div class="dashboard-stats">
+                <div class="stat-box">
+                    <h3>Total Users</h3>
+                    <p id="total-users">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Total Courses</h3>
+                    <p id="total-courses">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Total Teachers</h3>
+                    <p id="total-teachers">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Total Exams</h3>
+                    <p id="total-exams">0</p>
+                </div>
+            </div>
+            <button onclick="viewAllCourses()">View All Courses</button>
+        </section>
+
+        <section class="management">
+            <h2>Management Section</h2>
+            <button onclick="manageUsers()">Manage Users</button>
+            <button onclick="manageCourses()">Manage Courses</button>
+            <button onclick="manageTeachers()">Manage Teachers</button>
+            <button onclick="manageExams()">Manage Exams</button>
+            <button onclick="viewContactRequests()">View Contact Requests</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
